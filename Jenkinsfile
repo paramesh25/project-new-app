@@ -17,12 +17,6 @@ stage('Docker Image Push'){
    }
    sh 'docker push parameshn25/myweb:0.0.2'
    }
-   stage('Remove Previous Container'){
-	try{
-		sh 'docker rm -f tomcattest'
-	}catch(error){
-		//  do nothing if there is an exception
-	}
 stage('Docker deployment'){
    sh 'docker run -d -p 8099:8080 --name paramesh parameshn25/myweb:0.0.2' 
    }
